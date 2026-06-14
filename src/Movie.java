@@ -28,6 +28,13 @@ public class Movie {
     public void setIsRented(boolean isRented) {
         this.isRented = isRented;
     }
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (!(obj instanceof Movie)) return false;
+        Movie otherMovie = (Movie) obj;
+        return this.isSameMovie(otherMovie.title, otherMovie.releaseYear, otherMovie.director.getName());
+    }
 }
 
 

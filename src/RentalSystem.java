@@ -130,20 +130,35 @@ public class RentalSystem {
         }
         customer.removeMovie(movie);
         movie.setIsRented(false);
+        if (customer.hasNoMovies()) {
+            for (int i = 0; i < this.numOfCustomers; i++) {
+                if (this.customers[i].isSameCustomer(customerId)) {
+                    this.customers[i] = this.customers[this.numOfCustomers - 1];
+                    this.customers[this.numOfCustomers - 1] = null;
+                    this.numOfCustomers--;
+                    break;
+                }
+            }
+        }
     }
     public void printMovies() {
-        System.out.println("Rented Movies");
+        System.out.println("Rented Movies: ");
+        boolean hasRented = false;
         for (int i = 0; i < this.numOfMovies; i++) {
-            if (this.movies[i].getIsRented() == true) {
+            if (this.movies[i].getIsRented()) {
+                System.out.println(this.movies[i].printMovie());
+                hasRented = true;
+            }
+        }
+        if (!hasRented) {
+            System.out.println("No Rented movies."); }
+        System.out.println("Unrented Movies: ");
+        for (int i = 0; i < this.numOfMovies; i++) {
+            if (!(this.movies[i].getIsRented())) {
                 System.out.println(this.movies[i].printMovie());
             }
         }
-        System.out.println("Unrented Movies");
-        for (int i = 0; i < this.numOfMovies; i++) {
-            if (this.movies[i].getIsRented() == false) {
-                System.out.println(this.movies[i].printMovie());
-            }
-        }
+
 
     }
     }
