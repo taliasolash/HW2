@@ -12,20 +12,24 @@ public class Movie {
         this.genre = genre;
         this.isRented = false;
     }
-    public String printMovie(){
-        return ("Title: "+this.title+" Year: "+this.releaseYear+" director: "+ director);
-    }
-    @Override
-    public boolean isexis(Movie movie) {
-        if ()
-    }
 
     public Director getDirector() {
         return this.director;
     }
+    public String printMovie(){
+        return ("Title: "+this.title+", Genre: "+this.genre+", Year: "+this.releaseYear+", director: "+ director.getName());
+    }
     public Boolean getIsRented(){
         return isRented;
     }
+    public boolean isSameMovie(String title,int releaseYear, String directorName){
+        return this.title.equals(title) && this.releaseYear == releaseYear&& this.director.getName().equals(directorName);
+    }
+    public void setIsRented(boolean isRented) {
+        this.isRented = isRented;
+    }
 }
+
+
 
 
