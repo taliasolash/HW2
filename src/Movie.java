@@ -16,7 +16,7 @@ public class Movie {
         return ("Title: "+this.title+" Year: "+this.releaseYear+" director: "+ director);
     }
     @Override
-    public boolean equals(Movie movie) {
+    public boolean isexis(Movie movie) {
         if ()
     }
 
